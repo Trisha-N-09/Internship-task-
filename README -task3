@@ -1,0 +1,34 @@
+# Task 3 - SQL for Data Analysis
+
+## Objective
+Use SQL queries to extract, manipulate, and analyze structured e-commerce data.
+
+## Tools Used
+- SQLite
+- OneCompiler
+- GitHub
+
+## Database
+E-commerce database containing:
+- Customers
+- Products
+- Orders
+
+## SQL Concepts Covered
+1. SELECT, WHERE and ORDER BY
+2. GROUP BY and aggregate functions
+3. INNER JOIN
+4. LEFT JOIN
+5. RIGHT JOIN
+6. Subqueries
+7. Average Revenue Per User
+8. SQL Views
+9. Indexing and query optimization
+
+## Deliverables
+- SQL queries: `queries.sql`
+- SQL output screenshots
+- Database tables and analysis queries
+
+## Conclusion
+This task provided practical experience in using SQL to query and analyze structured e-commerce data, including joins, aggregation, subqueries, views, and indexes.
