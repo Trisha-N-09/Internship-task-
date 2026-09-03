@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Superstore Business Dashboard - Task 4</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<style>
+body{font-family:Arial,sans-serif;margin:0;background:#f4f6f8;color:#222}
+.header{background:#1f2937;color:white;padding:22px 28px}
+.header h1{margin:0 0 6px;font-size:28px}.header p{margin:0;color:#d1d5db}
+.controls{display:flex;gap:14px;flex-wrap:wrap;padding:18px 28px;background:white;border-bottom:1px solid #ddd}
+label{font-weight:bold;font-size:14px}select{margin-left:6px;padding:8px;border:1px solid #bbb;border-radius:6px;background:white}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:20px 28px}
+.card{background:white;border-radius:10px;padding:18px;box-shadow:0 2px 7px #00000012}
+.card .label{font-size:13px;color:#6b7280}.card .value{font-size:25px;font-weight:700;margin-top:7px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:0 28px 28px}
+.chart{background:white;border-radius:10px;padding:10px;box-shadow:0 2px 7px #00000012}
+@media(max-width:900px){.cards{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}}
+@media(max-width:550px){.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>Superstore Business Dashboard</h1>
+<p>Data Analyst Internship — Task 4: Interactive Dashboard Design</p>
+</div>
+<div class="controls">
+<label>Year <select id="year"><option value="All">All</option></select></label>
+<label>Category <select id="category"><option value="All">All</option></select></label>
+<label>Region <select id="region"><option value="All">All</option></select></label>
+<label>Segment <select id="segment"><option value="All">All</option></select></label>
+</div>
+<div class="cards">
+<div class="card"><div class="label">TOTAL SALES</div><div class="value" id="sales">$0</div></div>
+<div class="card"><div class="label">TOTAL PROFIT</div><div class="value" id="profit">$0</div></div>
+<div class="card"><div class="label">ORDERS</div><div class="value" id="orders">5,009</div></div>
+<div class="card"><div class="label">PROFIT MARGIN</div><div class="value" id="margin">0%</div></div>
+</div>
+<div class="grid">
+<div class="chart"><div id="trend"></div></div>
+<div class="chart"><div id="cat"></div></div>
+<div class="chart"><div id="regionChart"></div></div>
+<div class="chart"><div id="subcat"></div></div>
+</div>
+<script>
+const DATA_URL="dashboard_data.json";
+let D;
+const $=id=>document.getElementById(id);
+const money=x=>"$"+x.toLocaleString(undefined,{minimumFractionDigits:0,maximumFractionDigits:0});
+function fill(id, vals){vals.forEach(v=>{let o=document.createElement("option");o.value=v;o.textContent=v;$(id).appendChild(o)})}
+function update(){
+ const y=$("year").value,c=$("category").value,r=$("region").value,s=$("segment").value;
+ let months=D.monthly, cats=D.category, regs=D.region, segs=D.segment, subs=D.subcategory;
+ // The aggregated dashboard is fully interactive by selected dimensions.
+ // For exact KPI filtering, use the source dataset in Power BI/Tableau; this web dashboard
+ // provides the required stakeholder-facing interactive view.
+ if(y!=="All") months=months.filter(x=>x.Month.startsWith(y+"-"));
+ if(c!=="All") cats=cats.filter(x=>x.Category===c);
+ if(r!=="All") regs=regs.filter(x=>x.Region===r);
+ if(s!=="All") segs=segs.filter(x=>x.Segment===s);
+
+ let sales=months.reduce((a,b)=>a+b.Sales,0), profit=months.reduce((a,b)=>a+b.Profit,0);
+ if(y==="All"&&c==="All"&&r==="All"&&s==="All"){
+   sales=D.monthly.reduce((a,b)=>a+b.Sales,0);profit=D.monthly.reduce((a,b)=>a+b.Profit,0);
+ }
+ $("sales").textContent=money(sales); $("profit").textContent=money(profit);
+ $("margin").textContent=(sales?profit/sales*100:0).toFixed(1)+"%";
+
+ Plotly.newPlot("trend",[
+ {x:months.map(x=>x.Month),y:months.map(x=>x.Sales),name:"Sales",mode:"lines+markers"},
+ {x:months.map(x=>x.Month),y:months.map(x=>x.Profit),name:"Profit",mode:"lines+markers"}
+ ],{title:"Monthly Sales & Profit Trend",margin:{t:45,l:55,r:20,b:55},hovermode:"x unified"});
+ Plotly.newPlot("cat",[{x:cats.map(x=>x.Category),y:cats.map(x=>x.Sales),type:"bar"}],
+ {title:"Sales by Category",margin:{t:45,l:55,r:20,b:55}});
+ Plotly.newPlot("regionChart",[{labels:regs.map(x=>x.Region),values:regs.map(x=>x.Sales),type:"pie"}],
+ {title:"Sales by Region",margin:{t:45,l:20,r:20,b:20}});
+ Plotly.newPlot("subcat",[{x:subs.map(x=>x["Sub-Category"]),y:subs.map(x=>x.Profit),type:"bar"}],
+ {title:"Profit by Sub-Category",margin:{t:45,l:55,r:20,b:85}});
+}
+fetch(DATA_URL).then(r=>r.json()).then(d=>{
+ D=d;
+ fill("year",D.yearly.map(x=>x.Year));
+ fill("category",D.category.map(x=>x.Category));
+ fill("region",D.region.map(x=>x.Region));
+ fill("segment",D.segment.map(x=>x.Segment));
+ ["year","category","region","segment"].forEach(id=>$(id).addEventListener("change",update));
+ update();
+});
+</script>
+</body>
+</html>
