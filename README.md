@@ -1,65 +1,54 @@
-# Task 5 – Exploratory Data Analysis (EDA)
+# Task 6 – Sales Trend Analysis Using Aggregations
 
-## Internship Task
-**Task 5: Exploratory Data Analysis (EDA)**
+## Objective
+Analyze monthly revenue and order volume using SQL aggregation functions.
 
-The objective of this task is to explore a dataset using statistical summaries and visualizations, identify patterns, trends, relationships, missing values, and anomalies, and summarize the findings.
+## Tool
+SQLite (the SQL can be adapted for PostgreSQL/MySQL).
 
 ## Dataset
-**Titanic passenger dataset** (`train.csv`)
+The task brief specifies an `online_sales` table with:
+- `order_id`
+- `order_date`
+- `amount`
+- `product_id`
 
-- Rows: 891
-- Columns: 12
-- Target variable: `Survived`
-- 0 = Did not survive
-- 1 = Survived
-
-## Tools Used
-- Python
-- Pandas
-- Matplotlib
-- Seaborn
-- Jupyter Notebook
-
-## EDA Performed
-1. Dataset shape and information using `info()`
-2. Statistical summary using `describe()`
-3. Frequency analysis using `value_counts()`
-4. Missing-value analysis
-5. Univariate analysis
-6. Bivariate analysis
-7. Histograms
-8. Boxplots
-9. Scatterplots
-10. Correlation heatmap
-11. Pairplot
-12. Skewness and outlier discussion
-13. Multicollinearity discussion
-14. Key findings and conclusion
-15. Interview questions and answers
-
-## Main Findings
-- Overall survival rate: **38.38%**
-- Female survival rate: **74.2%**
-- Male survival rate: **18.9%**
-- First-class survival rate: **63.0%**
-- Second-class survival rate: **47.3%**
-- Third-class survival rate: **24.2%**
-- `Pclass` has a correlation of approximately **-0.34** with survival.
-- `Fare` has a correlation of approximately **0.26** with survival.
-- `Fare` is strongly right-skewed.
-- Missing values are mainly present in `Cabin` and `Age`.
+The SQL file assumes that the `online_sales` table has already been imported into the database.
 
 ## Files
-- `Task_5_EDA_Titanic.ipynb` – complete Jupyter Notebook
-- `Task_5_EDA_Report.pdf` – PDF report of findings
-- `train.csv` – dataset used for the analysis
-- `plots/` – generated visualizations
+- `task6_sales_trend_analysis.sql` – complete SQL queries for monthly revenue, order volume, date filtering, and top 3 months.
+- `results_table.csv` – example output format showing how the final results should be presented.
 
-## How to Run
-1. Open `Task_5_EDA_Titanic.ipynb` in Jupyter Notebook, JupyterLab, Google Colab, or VS Code.
-2. Keep `train.csv` in the same folder as the notebook.
-3. Run the cells from top to bottom.
+## Main Analysis
+1. Group orders by year and month.
+2. Calculate monthly revenue with `SUM(amount)`.
+3. Calculate order volume with `COUNT(DISTINCT order_id)`.
+4. Handle missing amounts with `COALESCE`.
+5. Sort results chronologically.
+6. Find the top 3 months by revenue.
 
-## Conclusion
-The EDA shows clear differences in survival across sex and passenger class. It also highlights skewed fare values, outliers, and missing data that should be considered in further analysis or predictive modeling.
+## Interview Questions – Answers
+
+### 1. How do you group data by month and year?
+Use a year/month extraction function and include both fields in `GROUP BY`. In SQLite, `strftime('%Y', order_date)` and `strftime('%m', order_date)` are used.
+
+### 2. What's the difference between COUNT(*) and COUNT(DISTINCT col)?
+`COUNT(*)` counts rows, while `COUNT(DISTINCT col)` counts only unique non-NULL values in the selected column.
+
+### 3. How do you calculate monthly revenue?
+Use `SUM(amount)` and group the records by year and month.
+
+### 4. What are aggregate functions in SQL?
+Aggregate functions perform calculations over multiple rows. Common examples are `SUM()`, `COUNT()`, `AVG()`, `MIN()`, and `MAX()`.
+
+### 5. How do you handle NULLs in aggregates?
+For amounts, `COALESCE(amount, 0)` can replace NULL with zero before applying `SUM()`. `COUNT(column)` also ignores NULL values.
+
+### 6. What’s the role of ORDER BY and GROUP BY?
+`GROUP BY` combines rows with the same grouping values for aggregation. `ORDER BY` sorts the final result.
+
+### 7. How do you get the top 3 months by sales?
+Group by year/month, calculate `SUM(amount)`, sort by revenue in descending order, and use `LIMIT 3`.
+
+## Important
+The provided task brief does not include the actual `online_sales` dataset values. Therefore, the SQL script is ready to run against the assigned dataset, while `results_table.csv` is an example results format rather than claimed results from an unavailable dataset.
