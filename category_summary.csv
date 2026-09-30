@@ -1,4 +1,9 @@
-Category,Sales,Profit,Units,Avg_Inventory_Days,Profit_Margin_%
-Furniture,861068.46,63667.17,3496,64.9,7.39
-Office Supplies,238193.05,41937.46,4740,32.5,17.61
-Technology,964767.4,141129.42,2817,44.9,14.63
+Category,Videos,Avg_Views,Total_Views,Avg_Engagement,Avg_Sentiment,Avg_Trending_Days
+Comedy,180,451559.79,81280763,6.3,0.41,16.32
+Entertainment,193,422650.06,81571462,5.8,0.35,16.09
+Gaming,197,375847.31,74041920,6.17,0.15,14.84
+Howto & Style,188,368530.78,69283786,6.02,0.29,15.55
+Music,184,435392.32,80112187,6.21,0.28,16.52
+News & Politics,174,405722.8,70595768,6.52,-0.05,15.83
+Science & Technology,194,456686.01,88597086,6.23,0.21,15.12
+Sports,190,483289.94,91825089,5.49,0.14,15.35
