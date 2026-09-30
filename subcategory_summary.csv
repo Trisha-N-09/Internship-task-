@@ -1,0 +1,14 @@
+Category,Sub_Category,Sales,Profit,Avg_Inventory_Days,Profit_Margin_%
+Furniture,Bookcases,206709.77,5899.27,71.0,2.85
+Furniture,Chairs,218171.81,23705.42,58.6,10.87
+Furniture,Furnishings,220161.9,25617.46,59.1,11.64
+Furniture,Tables,216024.98,8445.02,70.4,3.91
+Office Supplies,Art,45463.36,8076.7,32.6,17.77
+Office Supplies,Binders,43501.4,7423.87,31.9,17.07
+Office Supplies,Labels,48302.75,8594.21,32.7,17.79
+Office Supplies,Paper,53411.5,9616.91,32.6,18.01
+Office Supplies,Storage,47514.04,8225.77,32.7,17.31
+Technology,Accessories,200053.64,29581.61,45.4,14.79
+Technology,Copiers,196522.24,27470.62,43.9,13.98
+Technology,Machines,295323.81,43174.53,44.9,14.62
+Technology,Phones,272867.71,40902.66,45.4,14.99

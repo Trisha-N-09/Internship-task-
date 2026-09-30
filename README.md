@@ -1,35 +1,43 @@
-# Customer Lifetime Value Prediction Model
+# Retail Business Performance & Profitability Analysis
 
 **Submitted by:** Trisha N
 
 ## Objective
-Predict customer lifetime value from purchase behavior and segment customers based on predicted LTV.
+Analyze transactional retail data to uncover profit-draining categories, understand inventory turnover, and identify seasonal product behavior.
 
 ## Project structure
-- `data/customer_ltv_raw.csv` — raw dataset
-- `data/customer_ltv_clean.csv` — cleaned dataset
-- `data/final_ltv_predictions.csv` — final required LTV prediction CSV
-- `notebooks/Customer_LTV_Prediction.ipynb` — complete notebook
-- `notebooks/ltv_model.py` — Python model script
-- `models/ltv_random_forest_model.joblib` — trained model
-- `visualizations/` — model and segmentation charts
-- `reports/Customer_LTV_Project_Report.pdf` — final report
+- `data/retail_transactions_raw.csv` — raw dataset with deliberate duplicates/missing values for cleaning practice
+- `data/retail_transactions_clean.csv` — cleaned dataset
+- `data/category_summary.csv` — category KPIs
+- `data/subcategory_summary.csv` — sub-category KPIs
+- `data/monthly_summary.csv` — monthly sales/profit
+- `data/region_summary.csv` — regional KPIs
+- `data/season_summary.csv` — seasonal KPIs
+- `data/slow_moving_risk.csv` — inventory/profit risk flags
+- `sql/retail_analysis.sql` — SQL analysis queries
+- `notebooks/Retail_Business_Analysis.ipynb` — Jupyter notebook
+- `notebooks/retail_analysis.py` — Python script
+- `visualizations/` — analysis charts
+- `dashboard/Retail_Dashboard.xlsx` — dashboard-ready Excel workbook
+- `reports/Retail_Project_Report.pdf` — 2-page final report
 
-## Model
-Random Forest Regression using:
-- Frequency
-- Recency_Days
-- Average_Order_Value
-- Tenure_Months
+## Cleaning
+Raw rows: 2,505
+Clean unique transactions: 2,500
+Duplicates removed: 5
+Missing Discount values filled: 8
 
-## Test-set metrics
-- MAE: 113.56
-- RMSE: 155.17
-- R²: 0.911
-
-## Segmentation
-Predicted LTV is divided into four relative groups:
-Low, Medium, High, Very High.
+## Main results
+- Total sales: 2,064,028.91
+- Total profit: 246,734.05
+- Overall profit margin: 11.95%
+- Inventory Days vs Profit correlation: 0.14
 
 ## How to run
-Open the notebook in Jupyter or Google Colab and run the cells from top to bottom.
+1. Open `notebooks/Retail_Business_Analysis.ipynb` in Jupyter/Google Colab.
+2. If using Colab, upload the whole `data` folder and update the relative paths if required.
+3. Run cells from top to bottom.
+4. Execute `sql/retail_analysis.sql` after importing `retail_transactions_clean.csv` into your SQL database.
+
+## Dashboard
+`Retail_Dashboard.xlsx` contains KPI, category, monthly, and risk sheets. The clean CSV can be imported into Tableau to build an interactive dashboard with filters for Region, Category, Sub-Category and Season.
