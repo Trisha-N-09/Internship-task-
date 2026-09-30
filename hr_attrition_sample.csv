@@ -1,0 +1,31 @@
+EmployeeID,Age,Department,MaritalStatus,JobLevel,MonthlyIncome,YearsAtCompany,OverTime,JobSatisfaction,JobInvolvement,YearsSincePromotion,Attrition
+1,29,Sales,Single,Entry,2600,2,1,2,1,1,1
+2,41,Research & Development,Married,Mid,5200,8,0,3,1,2,0
+3,35,Human Resources,Single,Mid,4300,5,1,2,0,1,1
+4,32,Sales,Married,Mid,4100,4,0,3,1,2,0
+5,24,Research & Development,Single,Entry,2800,1,1,1,0,1,1
+6,46,Sales,Married,Senior,7200,15,0,4,1,3,0
+7,38,Research & Development,Divorced,Mid,5000,10,1,3,1,2,0
+8,27,Sales,Single,Entry,3000,3,1,2,0,1,1
+9,52,Research & Development,Married,Senior,8100,20,0,4,1,4,0
+10,31,Human Resources,Married,Mid,4500,6,1,2,1,1,0
+11,26,Sales,Single,Entry,2700,2,1,1,0,1,1
+12,44,Research & Development,Married,Senior,6800,12,0,3,1,3,0
+13,36,Sales,Divorced,Mid,4700,7,1,2,0,2,1
+14,30,Research & Development,Married,Mid,3900,5,0,3,1,2,0
+15,23,Human Resources,Single,Entry,2500,1,1,1,0,1,1
+16,49,Sales,Married,Senior,7600,17,0,4,1,3,0
+17,34,Research & Development,Single,Mid,4600,6,1,3,0,2,1
+18,40,Sales,Married,Mid,5400,9,0,3,1,2,0
+19,28,Research & Development,Single,Entry,3100,3,1,2,0,1,1
+20,55,Human Resources,Married,Senior,8400,22,0,4,1,4,0
+21,33,Sales,Single,Mid,4000,4,1,2,0,1,1
+22,47,Research & Development,Married,Senior,7000,14,0,3,1,3,0
+23,37,Human Resources,Divorced,Mid,4800,8,1,2,1,2,0
+24,25,Sales,Single,Entry,2900,2,1,1,0,1,1
+25,42,Research & Development,Married,Senior,6200,11,0,3,1,2,0
+26,39,Sales,Married,Mid,5100,8,0,3,1,2,0
+27,27,Research & Development,Single,Entry,3000,2,1,2,0,1,1
+28,45,Sales,Divorced,Senior,6500,13,0,4,1,3,0
+29,31,Human Resources,Single,Mid,4200,5,1,2,0,1,1
+30,50,Research & Development,Married,Senior,7800,18,0,4,1,4,0

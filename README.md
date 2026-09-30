@@ -1,76 +1,69 @@
-# LinkedIn Job Trend Analysis
+# HR Analytics – Predict Employee Attrition
 
 ## Project Overview
-This project analyzes job-posting data to identify recurring skills, roles, cities, and experience levels in data-related job opportunities.
+This project analyzes employee data to identify patterns associated with employee attrition and demonstrates a classification workflow for predicting attrition.
 
-The project follows the internship brief for **LinkedIn Job Trend Analysis (Web Scraping)**, which specifies collecting job titles, skills and locations, cleaning skill tags, generating top-skill-by-city visuals, and creating a skill-vs-role matrix. fileciteturn0file0L188-L198
+The project follows the supplied internship brief, which asks for EDA on department-wise attrition, salary bands and promotions; a Logistic Regression or Decision Tree model; Power BI visualization; and SHAP-based model explanation. Required deliverables are a Power BI dashboard, model accuracy/confusion matrix, and a PDF of attrition-prevention suggestions. fileciteturn0file0L27-L40
 
-**Data note:** The included CSV is a small practice dataset created to demonstrate the workflow. It is not presented as live LinkedIn data. For real data, use only permitted/authorized collection methods and respect LinkedIn's terms and applicable laws.
+> **Data note:** The included CSV is a small synthetic practice dataset created for demonstrating the project workflow. It is not a real company's employee data and should not be presented as such.
 
 ## Objectives
-- Analyze data-related job roles.
-- Identify frequently requested skills.
-- Compare skills across cities.
-- Build a skill-vs-role matrix.
-- Produce clear visuals and practical learning recommendations.
+- Explore employee attrition patterns.
+- Compare attrition across departments, job levels and overtime status.
+- Examine salary, satisfaction and promotion-related patterns.
+- Build a binary classification model.
+- Evaluate the model using accuracy and a confusion matrix.
+- Explain important model features.
+- Prepare recommendations that HR teams could investigate.
 
 ## Tools Used
 - Python
 - Pandas
 - Matplotlib
-- CSV/Excel-compatible data
-- BeautifulSoup (optional for permitted HTML data)
+- Scikit-learn
+- SHAP (optional explainability)
+- Power BI
 
-## Workflow
-1. Import job-posting data.
-2. Clean and standardize text fields.
-3. Split multi-skill fields into individual skills.
-4. Calculate skill frequency.
-5. Compare skills by city.
-6. Build the skill-vs-role matrix.
-7. Generate visualizations.
-8. Interpret findings.
+## Project Workflow
+1. Import the employee dataset.
+2. Check missing values and duplicates.
+3. Encode categorical variables.
+4. Perform exploratory data analysis.
+5. Split data into training and testing sets.
+6. Train a Decision Tree classifier.
+7. Calculate accuracy and confusion matrix.
+8. Review feature importance.
+9. Create Power BI-ready summary data.
+10. Prepare HR recommendations.
 
-## Sample-Dataset Findings
-- SQL and Python occur frequently in the sample.
-- Excel and Power BI appear repeatedly in analyst-oriented roles.
-- Tableau also appears in analyst examples.
-- Machine Learning and Statistics are more concentrated in the Data Scientist examples.
-- Bengaluru, Hyderabad, Pune, Mumbai and Chennai are represented.
-
-These observations describe only the included practice dataset, not the entire current job market.
-
-## Career Recommendations
-The project highlights a practical learning stack for entry-level data analytics:
-- SQL
-- Python/Pandas
-- Excel
-- Power BI or Tableau
-- Statistics
+## Important Interpretation Note
+The model and findings in this repository are demonstrations using synthetic data. They should not be used to make real employment decisions. A production HR model would require a much larger, representative dataset, fairness testing, privacy controls, validation and human review.
 
 ## Deliverables
-- `job_postings_sample.csv` — practice dataset
-- `job_trend_analysis.py` — analysis script
-- `requirements.txt` — packages
-- `project_report.md` — short report
-- `outputs/` — generated CSVs and charts
+- `hr_attrition_sample.csv` — synthetic practice dataset
+- `hr_attrition_analysis.py` — analysis and model script
+- `requirements.txt`
+- `project_report.md`
+- `attrition_prevention_suggestions.md`
+- `outputs/` — charts, confusion matrix, model metrics and Power BI-ready tables
 
-## Run
+## How to Run
 ```bash
 pip install -r requirements.txt
-python job_trend_analysis.py
+python hr_attrition_analysis.py
 ```
 
 ## Interview Explanation
-**Problem:** Job descriptions contain many different skills, making it difficult to identify recurring requirements.
+**Problem:** Organizations want to understand factors associated with employee attrition and identify employees who may be at higher risk.
 
-**Approach:** I cleaned the job-posting data using Pandas, separated individual skills, counted their frequency, grouped them by city and role, and visualized the results.
+**Approach:** I cleaned the HR dataset, explored attrition patterns, encoded categorical variables, trained a Decision Tree classifier, evaluated it with accuracy and a confusion matrix, and reviewed feature importance.
 
-**Outcome:** The analysis gives a structured view of recurring skills and role patterns and can be extended with a larger authorized dataset.
+**Outcome:** The project demonstrates an end-to-end HR analytics workflow and shows how data can support further investigation into retention factors.
 
-## Future Scope
-- Add more job postings.
-- Add posting date, salary, company and work-mode fields where permitted.
-- Analyze trends over time.
+## Future Improvements
+- Use a larger real-world dataset with appropriate permissions.
+- Add cross-validation and ROC-AUC/precision/recall.
+- Tune model hyperparameters.
+- Add SHAP explanations for individual predictions.
 - Build an interactive Power BI dashboard.
-- Compare entry-level and experienced roles separately.
+- Perform fairness and bias checks before any real-world use.
