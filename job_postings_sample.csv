@@ -1,0 +1,21 @@
+job_title,skills,location,role_category,experience_level
+Data Analyst,"Python,SQL,Excel,Power BI",Bengaluru,Data Analytics,Entry Level
+Data Analyst,"Python,SQL,Tableau,Excel",Bengaluru,Data Analytics,Entry Level
+Business Analyst,"SQL,Excel,Power BI,Jira",Bengaluru,Business Analytics,Entry Level
+Data Scientist,"Python,SQL,Machine Learning,Power BI",Bengaluru,Data Science,Mid Level
+Data Analyst,"SQL,Python,Excel,Tableau",Hyderabad,Data Analytics,Entry Level
+Data Analyst,"Python,SQL,Power BI,Statistics",Hyderabad,Data Analytics,Entry Level
+Business Analyst,"Excel,SQL,Power BI",Hyderabad,Business Analytics,Mid Level
+Data Scientist,"Python,SQL,Machine Learning,Statistics",Hyderabad,Data Science,Mid Level
+Data Analyst,"Python,SQL,Excel,Power BI",Pune,Data Analytics,Entry Level
+Data Analyst,"SQL,Excel,Tableau,Python",Pune,Data Analytics,Entry Level
+Business Analyst,"SQL,Excel,Power BI,Jira",Pune,Business Analytics,Entry Level
+Data Scientist,"Python,SQL,Machine Learning,Tableau",Pune,Data Science,Mid Level
+Data Analyst,"Python,SQL,Excel,Power BI",Mumbai,Data Analytics,Entry Level
+Data Analyst,"SQL,Python,Tableau,Excel",Mumbai,Data Analytics,Mid Level
+Business Analyst,"Excel,SQL,Power BI",Mumbai,Business Analytics,Entry Level
+Data Scientist,"Python,SQL,Machine Learning,Statistics",Mumbai,Data Science,Mid Level
+Data Analyst,"Python,SQL,Power BI,Excel",Chennai,Data Analytics,Entry Level
+Data Analyst,"SQL,Excel,Tableau,Python",Chennai,Data Analytics,Entry Level
+Business Analyst,"SQL,Excel,Power BI",Chennai,Business Analytics,Entry Level
+Data Scientist,"Python,SQL,Machine Learning,Power BI",Chennai,Data Science,Mid Level
